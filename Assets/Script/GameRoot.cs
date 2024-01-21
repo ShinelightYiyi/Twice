@@ -21,5 +21,12 @@ public class GameRoot : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+        GameObject go = GameObject.FindGameObjectWithTag("NormalCanvas");
+        DontDestroyOnLoad(go);
+    }
+
+    public void Start()
+    {
+        rootUIManager.Push(new PanelA());
     }
 }

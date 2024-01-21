@@ -5,8 +5,8 @@ using UnityEngine.Events;
 
 public class MonoManager
 {
-    private MonoManager instance;
-    public MonoManager Instance { get=>instance ?? new MonoManager(); }
+    private static MonoManager instance;
+    public  static MonoManager Instance { get=>instance ?? new MonoManager(); }
     //单例模式
 
     private MonoController controller;

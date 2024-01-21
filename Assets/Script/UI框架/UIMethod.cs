@@ -17,7 +17,7 @@ public class UIMethod
     /// <returns></returns>
     public GameObject FindCanvas()
     {
-        GameObject go = GameObject.FindObjectOfType<Canvas>().gameObject;
+        GameObject go = GameObject.FindGameObjectWithTag("NormalCanvas");
         if(go == null)
         {
             Debug.LogWarning("无效的获取Canvas");

@@ -15,7 +15,10 @@ public class SceneController
         SceneManager.LoadScene(scene.SceneName);
         scene.EnterScene();
     }
-
+    public void LoadSceneAsyn(BaseScene scene)
+    {
+       MonoManager.Instance.StartCroutine(ReallyLoadSceneAsyn(scene));
+    }
     private IEnumerator ReallyLoadSceneAsyn(BaseScene scene)
     {
         float disProgress = 0f;
@@ -45,7 +48,7 @@ public class SceneController
         while (!asy.isDone)
         {
             //  Debug.Log("进入加载 3");
-            EventCenter.Instance.EventTrigger("进度更新", 1f);
+            EventCenter.Instance.EventTrigger("加载场景", 1f);
             if (disProgress >= 0.9f)
             {
                 asy.allowSceneActivation = true;
