@@ -104,7 +104,7 @@ public class UIManager
                 uiStack.Peek().OnDisable();
                 uiStack.Peek().OnDestroy();
 
-                // GameObject.Destroy(uiObjectDic[uiStack.Peek().uiType.Name]);
+                 GameObject.Destroy(uiObjectDic[uiStack.Peek().uiType.Name]);
                 uiObjectDic.Remove(uiStack.Peek().uiType.Name);
                 uiStack.Pop();
 

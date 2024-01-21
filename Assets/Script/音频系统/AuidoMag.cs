@@ -1,18 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
-public class AuidoMag : MonoBehaviour
+public class AuidoMag 
 {
-    // Start is called before the first frame update
-    void Start()
+    private static AuidoMag instance;
+    public static AuidoMag Instance { get => instance ?? new AuidoMag(); }
+
+    public void Play(string Path)
     {
-        
+        GameObject go = GameObject.FindGameObjectWithTag("Music");
+        AudioSource aui = go.GetComponent<AudioSource>();   
+        AudioClip clip = Resources.Load<AudioClip>(Path);
+        aui.clip = clip;
+        aui.Play();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void PlayOneShot(string Path)
     {
-        
+        GameObject go = GameObject.FindGameObjectWithTag("Sound");
+        AudioSource aui = go.GetComponent<AudioSource>();
+        AudioClip clip = Resources.Load<AudioClip>(Path);
+        aui.clip = clip;
+        aui.PlayOneShot(aui.clip);
+    }
+
+    public void Stop(string Path) 
+    {
+        GameObject go = GameObject.FindGameObjectWithTag("Music");
+        AudioSource aui = go.GetComponent<AudioSource>();
+        AudioClip clip = Resources.Load<AudioClip>(Path);
+        aui.clip = clip;
+        aui.Stop();
     }
 }

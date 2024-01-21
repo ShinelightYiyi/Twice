@@ -25,8 +25,23 @@ public class GameRoot : MonoBehaviour
         DontDestroyOnLoad(go);
     }
 
-    public void Start()
+    private void Start()
     {
-        rootUIManager.Push(new PanelA());
+        //  rootUIManager.Push(new PanelA());
+        AuidoMag.Instance.Play("Music/AudioA");
+    }
+
+    private void Update()
+    {
+        if(Input.GetKeyUp(KeyCode.Escape)) 
+        {
+            rootUIManager.Pop(false);
+            rootUIManager.Push(new PanelAudio());
+        }
+        else if(Input.GetKeyUp(KeyCode.R))
+        {
+            rootUIManager.Pop(false);
+            rootUIManager.Push(new PanelA());
+        }
     }
 }
