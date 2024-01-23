@@ -121,6 +121,7 @@ public class EventCenter //通知者
             if ((eventDic[name] as EventInfo<T>).actions != null) 
             {
                 (eventDic[name] as EventInfo<T>).actions.Invoke(info);
+                Debug.Log("触发事件" + name);
             }
             else
             {
@@ -144,6 +145,7 @@ public class EventCenter //通知者
             if ((eventDic[name] as EventInfo).actions != null)
             {
                 (eventDic[name] as EventInfo).actions.Invoke();
+                Debug.Log("触发事件" + name);
             }
             else
             {
