@@ -7,14 +7,15 @@ TagManager:
   - NormalCanvas
   - Pass
   - Music
+  - Door
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
-  - 
+  - Point
   - 
   - 
   - 
