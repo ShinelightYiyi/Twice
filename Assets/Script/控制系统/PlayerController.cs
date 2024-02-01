@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     private BoxCollider2D p_BX;
     bool isGround;
     bool canOpenDoor;
-    [SerializeField] bool isUp;
+    bool isChanging;
     [SerializeField] LayerMask groundLayer;
     private float high =8.2f;
     private void Awake()
@@ -24,14 +24,15 @@ public class PlayerController : MonoBehaviour
     }
     private void Start()
     {
+        isChanging = true;
         ani = GetComponent<Animator>();
         EventCenter.Instance.AddEventListener<bool>("开门", (o) => CanOpenTheDoor(o));
-        // EventCenter.Instance.AddEventListener<bool>("翻转" , (o) => UpToDown(o));
-        isUp = true;
+        EventCenter.Instance.AddEventListener("切换世界", () => ChangeScene());
         UnityAction myAction = null;
         myAction += Jump;
         myAction += MoveX;
         myAction += RayCast;
+        myAction += PlayerImage;
         MonoManager.Instance.AddUpdateListener(myAction);
     }
 
@@ -63,19 +64,10 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void UpToDown(bool canDown)
-    {
-        if(canDown)
-        {
-            Player.transform.position = new Vector3(Player.transform.position.x, -Player.transform.position.y, 0);
-            p_Rd.gravityScale *= -1;
-            isUp = !isUp;
-        }
-    }
 
     private void RayCast()
     {
-        if (isUp)
+        if (isChanging)
         {
             RaycastHit2D hit = Physics2D.Raycast(p_BX.bounds.center - new Vector3(0, p_BX.bounds.extents.y, 0), Vector2.down, 0.1f, groundLayer);
             //Debug.DrawLine(transform.position, Vector2.down);
@@ -88,7 +80,7 @@ public class PlayerController : MonoBehaviour
                 isGround = false;
             }
         }
-        else if (!isUp)
+        else if (!isChanging)
         {
             RaycastHit2D hit = Physics2D.Raycast(p_BX.bounds.center + new Vector3(0, p_BX.bounds.extents.y, 0), Vector2.up, 0.1f, groundLayer);
             //Debug.DrawLine(transform.position, Vector2.down);
@@ -106,12 +98,12 @@ public class PlayerController : MonoBehaviour
 
     private void Jump()
     {
-        if(isGround && Input.GetKeyDown(KeyCode.W) && isUp)
+        if(isGround && Input.GetKeyDown(KeyCode.W) && isChanging)
         {          
             p_Rd.AddForce(new Vector2(0f, 1f*high),ForceMode2D.Impulse);
             ani.SetBool("isWalking", false);
         }
-        if (isGround && Input.GetKeyDown(KeyCode.W) && !isUp)
+        if (isGround && Input.GetKeyDown(KeyCode.W) && !isChanging)
         {
             p_Rd.AddForce(new Vector2(0f, -50f*high));
             ani.SetBool("isWalking", false);
@@ -132,7 +124,33 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void ChangeScene()
+    {
+        isChanging = !isChanging;      
+    }
 
+    private void PlayerImage()
+    {
+        if(isChanging)
+        {
+            if(p_Rd.gravityScale<0)
+            {
+                p_Rd.gravityScale *= -1;
+                Player.transform.localScale = new Vector3(Player.transform.localScale.x, -1 * Player.transform.localScale.y, Player.transform.localScale.z);
+            }
+            
+            ani.SetBool("changeScene", false);
+        }
+        if(!isChanging)
+        {
+            if (p_Rd.gravityScale > 0)
+            {
+                p_Rd.gravityScale *= -1;
+                Player.transform.localScale = new Vector3(Player.transform.localScale.x, -1 * Player.transform.localScale.y, Player.transform.localScale.z);
+            }
+            ani.SetBool("changeScene", true);
+        }
+    }
 
 
 }

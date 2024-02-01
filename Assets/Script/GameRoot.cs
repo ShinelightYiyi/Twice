@@ -9,6 +9,7 @@ public class GameRoot : MonoBehaviour
 
     public UIManager rootUIManager;
 
+
     public void Awake()
     {
         rootUIManager = new UIManager();

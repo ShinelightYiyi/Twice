@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &215908056 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4659799185798140428, guid: e34e2fd1ad2d24e4b88e57d2b8028087, type: 3}
+  m_PrefabInstance: {fileID: 2034861817084398387}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &665359184
 GameObject:
   m_ObjectHideFlags: 0
@@ -633,6 +638,27 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5488867988745199935, guid: e34e2fd1ad2d24e4b88e57d2b8028087, type: 3}
   m_PrefabInstance: {fileID: 2034861817084398387}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1953109235
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215908056}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c8de1435c085279478f0587ee4b43748, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1963820784
 GameObject:
   m_ObjectHideFlags: 0
@@ -797,10 +823,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8815686273913651161, guid: e34e2fd1ad2d24e4b88e57d2b8028087, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 46382b3bc153d724ca492b81439428ae, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4659799185798140428, guid: e34e2fd1ad2d24e4b88e57d2b8028087, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1953109235}
   m_SourcePrefab: {fileID: 100100000, guid: e34e2fd1ad2d24e4b88e57d2b8028087, type: 3}
 --- !u!1001 &4394716896358813070
 PrefabInstance:
@@ -812,11 +845,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 334528570389853521, guid: 573be01845cb8534ab631d815904738d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.5
+      value: 2.23
       objectReference: {fileID: 0}
     - target: {fileID: 334528570389853521, guid: 573be01845cb8534ab631d815904738d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.51
+      value: -0.68
       objectReference: {fileID: 0}
     - target: {fileID: 334528570389853521, guid: 573be01845cb8534ab631d815904738d, type: 3}
       propertyPath: m_LocalPosition.z
