@@ -8,24 +8,53 @@ public class PlayerController : MonoBehaviour
 {
     private GameObject Player;
     private Rigidbody2D p_Rd;
-    float input_x;
+    private Animator ani;
+    private float input_x;
     private BoxCollider2D p_BX;
     bool isGround;
     bool canOpenDoor;
     [SerializeField] bool isUp;
-    [SerializeField]
-    LayerMask groundLayer;
+    [SerializeField] LayerMask groundLayer;
+    private float high =8.2f;
     private void Awake()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
         p_BX = GetComponent<BoxCollider2D>();
         p_Rd = Player.GetComponent<Rigidbody2D>();
     }
+    private void Start()
+    {
+        ani = GetComponent<Animator>();
+        EventCenter.Instance.AddEventListener<bool>("开门", (o) => CanOpenTheDoor(o));
+        // EventCenter.Instance.AddEventListener<bool>("翻转" , (o) => UpToDown(o));
+        isUp = true;
+        UnityAction myAction = null;
+        myAction += Jump;
+        myAction += MoveX;
+        myAction += RayCast;
+        MonoManager.Instance.AddUpdateListener(myAction);
+    }
 
     private void MoveX()
     {
         input_x = Input.GetAxisRaw("Horizontal");
-        p_Rd.velocity = new Vector2(input_x*5, p_Rd.velocity.y);
+        if(input_x < 0)
+        {
+            ani.SetBool("isWalking", true);
+           Player.transform.localScale = new Vector3(-0.34f,Player.transform.localScale.y, 0);
+        }
+        else if(input_x > 0)
+        {
+            ani.SetBool("isWalking", true);
+            Player.transform.localScale = new Vector3(0.34f, Player.transform.localScale.y, 0);
+        }
+        else if(input_x == 0)
+        {
+            ani.SetBool("isWalking", false);
+        }
+
+          p_Rd.velocity = new Vector2(input_x*5, p_Rd.velocity.y);
+
         if (canOpenDoor)
         {
           //  Debug.Log("可以开门");
@@ -33,6 +62,7 @@ public class PlayerController : MonoBehaviour
                 EventCenter.Instance.EventTrigger("打开门");
         }
     }
+
     private void UpToDown(bool canDown)
     {
         if(canDown)
@@ -41,8 +71,8 @@ public class PlayerController : MonoBehaviour
             p_Rd.gravityScale *= -1;
             isUp = !isUp;
         }
-
     }
+
     private void RayCast()
     {
         if (isUp)
@@ -71,20 +101,24 @@ public class PlayerController : MonoBehaviour
                 isGround = false;
             }
         }
-
     }
+
 
     private void Jump()
     {
         if(isGround && Input.GetKeyDown(KeyCode.W) && isUp)
-        {
-            p_Rd.AddForce(new Vector2(0f, 200f));
+        {          
+            p_Rd.AddForce(new Vector2(0f, 1f*high),ForceMode2D.Impulse);
+            ani.SetBool("isWalking", false);
         }
         if (isGround && Input.GetKeyDown(KeyCode.W) && !isUp)
         {
-            p_Rd.AddForce(new Vector2(0f, -200f));
+            p_Rd.AddForce(new Vector2(0f, -50f*high));
+            ani.SetBool("isWalking", false);
         }
     }
+
+
     private void CanOpenTheDoor(bool canOpen)
     {
         if(canOpen)
@@ -98,17 +132,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        EventCenter.Instance.AddEventListener<bool>("开门", (o) => CanOpenTheDoor(o));
-        EventCenter.Instance.AddEventListener<bool>("翻转" , (o) => UpToDown(o));
-        isUp = true;
-        UnityAction myAction = null;
-        myAction += Jump;
-        myAction += MoveX;
-        myAction += RayCast;
-        MonoManager.Instance.AddUpdateListener(myAction);
-    }
+
 
 
 }

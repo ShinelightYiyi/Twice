@@ -13,8 +13,8 @@ public class DoorController : MonoBehaviour
             EventCenter.Instance.EventTrigger<bool>("开门", true);
           //  Debug.Log("进入");
         }
-
     }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.tag == "Player")
