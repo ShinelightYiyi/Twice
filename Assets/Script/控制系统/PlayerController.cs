@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -12,6 +13,8 @@ public class PlayerController : MonoBehaviour
     private BoxCollider2D p_BX;
     bool isGround;
     bool canOpenDoor;
+    Animator animator;
+    SpriteRenderer spriteRenderer;
     [SerializeField] bool isUp;
     [SerializeField]
     LayerMask groundLayer;
@@ -20,12 +23,29 @@ public class PlayerController : MonoBehaviour
         Player = GameObject.FindGameObjectWithTag("Player");
         p_BX = GetComponent<BoxCollider2D>();
         p_Rd = Player.GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void MoveX()
     {
         input_x = Input.GetAxisRaw("Horizontal");
-        p_Rd.velocity = new Vector2(input_x*5, p_Rd.velocity.y);
+        animator.SetFloat("Speed",Mathf.Abs(input_x));
+        p_Rd.velocity = new Vector2(input_x * 5, p_Rd.velocity.y);
+
+        if (input_x > 0)
+        {
+            spriteRenderer.flipX = false;
+            gameObject.BroadcastMessage("IsFacingRight", true);
+        }
+        if (input_x < 0)
+        {
+            spriteRenderer.flipX = true;
+            gameObject.BroadcastMessage("IsFacingRight", false);
+        }
+        
+
+
         if (canOpenDoor)
         {
           //  Debug.Log("可以开门");
@@ -33,6 +53,8 @@ public class PlayerController : MonoBehaviour
                 EventCenter.Instance.EventTrigger("打开门");
         }
     }
+
+
     private void UpToDown(bool canDown)
     {
         if(canDown)
