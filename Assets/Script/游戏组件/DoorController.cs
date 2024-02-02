@@ -6,11 +6,16 @@ using DG.Tweening;
 
 public class DoorController : MonoBehaviour
 {
-    public GameObject door;
-    public int XValue;
-    public int YValue;
-    public float duration;
+    [SerializeField] GameObject Door;
+    [SerializeField] GameObject P1;
+    [SerializeField] GameObject P2;
+    [SerializeField] float duration;
+    private bool isOpen;
 
+    private void Awake()
+    {
+        EventCenter.Instance.AddEventListener("活动门", () => ControlDoor());
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
@@ -29,22 +34,22 @@ public class DoorController : MonoBehaviour
         }
     }
 
-    private void Open()
+    private void ControlDoor()
     {
-       door.transform.DOMoveY(YValue,duration);
-       door.transform.DOMoveX(XValue,duration);
+        if (!isOpen)
+        {
+            Door.transform.DOMove(P2.transform.position, duration);
+            isOpen = !isOpen;
+        }
+        else if(isOpen )
+        {
+            Door.transform.DOMove(P1.transform.position, duration);
+            isOpen = !isOpen;
+        }
     }
     
-    private void Close()
-    {
-        door.transform.DOMoveY(-YValue,duration);
-        door.transform.DOMoveX(-XValue,duration);
-    }
-    private void Start()
-    {
-        EventCenter.Instance.AddEventListener("打开门", () => Open());
-        
-    }
+
+
 
 
 }

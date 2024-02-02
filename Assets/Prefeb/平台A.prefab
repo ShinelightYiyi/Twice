@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 8111803983335812642}
   - component: {fileID: 4401359569137566466}
   - component: {fileID: 582885475924220190}
+  - component: {fileID: 9038344880700001748}
+  - component: {fileID: 1600940118918917321}
   m_Layer: 3
   m_Name: "\u5E73\u53F0A"
   m_TagString: Untagged
@@ -28,8 +30,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.68, y: -0.15, z: 0}
-  m_LocalScale: {x: 0.22999999, y: 0.22999999, z: 0.22999999}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 0.15, y: 0.22999999, z: 0.22999999}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -74,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d36b0d579826b654588c8ae6c936b428, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d7e1f1c32a34b8c4f9df6ccfaa364d9b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -117,7 +119,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.80681896, y: -1.4092427}
+  m_Offset: {x: 0.80681896, y: 0.80645865}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -128,5 +130,38 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 8.626362, y: 4.667572}
+  m_Size: {x: 8.626362, y: 4.900803}
   m_EdgeRadius: 0
+--- !u!95 &9038344880700001748
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5699877887289426356}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e10163c5152f6e645aaa7732537864a4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1600940118918917321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5699877887289426356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40f303989cfb581419d8e8666a78a9c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

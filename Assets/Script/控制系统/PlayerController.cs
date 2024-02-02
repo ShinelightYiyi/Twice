@@ -58,9 +58,11 @@ public class PlayerController : MonoBehaviour
 
         if (canOpenDoor)
         {
-          //  Debug.Log("可以开门");
+            //  Debug.Log("可以开门");
             if (Input.GetKeyDown(KeyCode.Space))
-                EventCenter.Instance.EventTrigger("打开门");
+            {
+                EventCenter.Instance.EventTrigger("活动门"); 
+            }
         }
     }
 
