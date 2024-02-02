@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,7 +6,11 @@ using DG.Tweening;
 
 public class DoorController : MonoBehaviour
 {
-    private GameObject door;
+    public GameObject door;
+    public int XValue;
+    public int YValue;
+    public float duration;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
@@ -26,13 +31,20 @@ public class DoorController : MonoBehaviour
 
     private void Open()
     {
-       door.transform.DOMoveY(10,1f);
+       door.transform.DOMoveY(YValue,duration);
+       door.transform.DOMoveX(XValue,duration);
     }
-
+    
+    private void Close()
+    {
+        door.transform.DOMoveY(-YValue,duration);
+        door.transform.DOMoveX(-XValue,duration);
+    }
     private void Start()
     {
-        door = GameObject.FindGameObjectWithTag("Door");
         EventCenter.Instance.AddEventListener("´ò¿ªÃÅ", () => Open());
+        
     }
+
 
 }

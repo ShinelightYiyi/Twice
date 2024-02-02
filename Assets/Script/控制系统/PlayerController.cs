@@ -10,9 +10,9 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D p_Rd;
     private Animator ani;
     private float input_x;
-    private BoxCollider2D p_BX;
+    private BoxCollider2D p_BX;         
     bool isGround;
-    bool canOpenDoor;
+    public bool canOpenDoor;
     bool isChanging;
     [SerializeField] LayerMask groundLayer;
     private float high =8.2f;
@@ -42,12 +42,12 @@ public class PlayerController : MonoBehaviour
         if(input_x < 0)
         {
             ani.SetBool("isWalking", true);
-           Player.transform.localScale = new Vector3(-0.34f,Player.transform.localScale.y, 0);
+           Player.transform.localScale = new Vector3(-0.15f,Player.transform.localScale.y, 0);
         }
         else if(input_x > 0)
         {
             ani.SetBool("isWalking", true);
-            Player.transform.localScale = new Vector3(0.34f, Player.transform.localScale.y, 0);
+            Player.transform.localScale = new Vector3(0.15f, Player.transform.localScale.y, 0);
         }
         else if(input_x == 0)
         {
