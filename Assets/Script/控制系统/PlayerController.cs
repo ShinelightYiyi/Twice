@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     private BoxCollider2D p_BX;         
     bool isGround;
     public bool canOpenDoor;
-    bool isChanging;
+    public bool isChanging;
     [SerializeField] LayerMask groundLayer;
     private float high =8.2f;
     private void Awake()
@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     }
     private void Start()
     {
-        isChanging = true;
+        
         ani = GetComponent<Animator>();
         EventCenter.Instance.AddEventListener<bool>("开门", (o) => CanOpenTheDoor(o));
         EventCenter.Instance.AddEventListener("切换世界", () => ChangeScene());
