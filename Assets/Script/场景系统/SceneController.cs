@@ -10,21 +10,20 @@ public class SceneController
     public static SceneController Instance { get => instance ?? new SceneController(); }
     //单例模式
 
-    public void LoadScene(BaseScene scene)
+    public void LoadScene(string scene)
     {
-        SceneManager.LoadScene(scene.SceneName);
-        scene.EnterScene();
+        SceneManager.LoadScene(scene);
     }
-    public void LoadSceneAsyn(BaseScene scene)
+    public void LoadSceneAsyn(string scene)
     {
        MonoManager.Instance.StartCroutine(ReallyLoadSceneAsyn(scene));
     }
-    private IEnumerator ReallyLoadSceneAsyn(BaseScene scene)
+    private IEnumerator ReallyLoadSceneAsyn(string scene)
     {
         float disProgress = 0f;
         float currentProgress = 0f;
 
-        AsyncOperation asy = SceneManager.LoadSceneAsync(scene.SceneName);
+        AsyncOperation asy = SceneManager.LoadSceneAsync(scene);
         asy.allowSceneActivation = false;
 
         while(currentProgress < 0.9f)
@@ -56,6 +55,5 @@ public class SceneController
             yield return asy.progress;
         }
 
-        scene.EnterScene();
     }
 }
