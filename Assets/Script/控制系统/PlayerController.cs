@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     }
     private void Start()
     {
-        isChanging = true;
+        isChanging = false;
         ani = GetComponent<Animator>();
         EventCenter.Instance.AddEventListener<bool>("开门", (o) => CanOpenTheDoor(o));
         EventCenter.Instance.AddEventListener("切换世界", () => ChangeScene());
