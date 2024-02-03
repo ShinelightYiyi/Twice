@@ -24,17 +24,18 @@ public class GameRoot : MonoBehaviour
         }
         GameObject go = GameObject.FindGameObjectWithTag("NormalCanvas");
         DontDestroyOnLoad(go);
+        DontDestroyOnLoad(this);
     }
 
     private void Start()
     {
         //  rootUIManager.Push(new PanelA());
-        AuidoMag.Instance.Play("Music/AudioA");
+      //  AuidoMag.Instance.Play("Music/AudioA");
     }
 
     private void Update()
     {
-        if(Input.GetKeyUp(KeyCode.Escape)) 
+      /*  if(Input.GetKeyUp(KeyCode.Escape)) 
         {
             rootUIManager.Pop(false);
             rootUIManager.Push(new PanelAudio());
@@ -43,6 +44,6 @@ public class GameRoot : MonoBehaviour
         {
             rootUIManager.Pop(false);
             rootUIManager.Push(new PanelA());
-        }
+        }*/
     }
 }

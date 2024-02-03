@@ -28,12 +28,13 @@ public class PlayerController : MonoBehaviour
         ani = GetComponent<Animator>();
         EventCenter.Instance.AddEventListener<bool>("开门", (o) => CanOpenTheDoor(o));
         EventCenter.Instance.AddEventListener("切换世界", () => ChangeScene());
-        UnityAction myAction = null;
-        myAction += Jump;
-        myAction += MoveX;
-        myAction += RayCast;
-        myAction += PlayerImage;
-        MonoManager.Instance.AddUpdateListener(myAction);
+    }
+    private void Update()
+    {
+        Jump();
+        MoveX();
+        RayCast();
+        PlayerImage();
     }
 
     private void MoveX()

@@ -35,6 +35,5 @@ public class PanelA : BasePanel
         GameRoot.Instance.rootUIManager.Pop(true);
         GameRoot.Instance.rootUIManager.Push(new PanelPass());
         yield return new WaitForSeconds(0.25f);
-        SceneController.Instance.LoadSceneAsyn(new SceneB());
     }
 }
