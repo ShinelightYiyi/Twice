@@ -28,8 +28,15 @@ public class BoxControl : MonoBehaviour
     {
         ChangeGrivaty();
         CanHurt();
+        if(Input.GetKeyDown(KeyCode.R)) 
+        {
+            ReStartGame();
+        }
     }
-
+    private void ReStartGame()
+    {
+        KillPlayer();
+    }
     private void CanHurt()
     {
         if(isHurt)

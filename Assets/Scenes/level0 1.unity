@@ -991,6 +991,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 57955778345131468, guid: 4145afd76db18a946ac3946cdcb10bbb, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2030725739842714070, guid: 4145afd76db18a946ac3946cdcb10bbb, type: 3}
+      propertyPath: m_Color.a
+      value: 0.5019608
+      objectReference: {fileID: 0}
     - target: {fileID: 4901388511175042110, guid: 4145afd76db18a946ac3946cdcb10bbb, type: 3}
       propertyPath: scene
       value: level1
@@ -1178,6 +1186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15f3b445ea835e24091ff773e0f8c070, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thisScene: 
 --- !u!1001 &1664429950
 PrefabInstance:
   m_ObjectHideFlags: 0

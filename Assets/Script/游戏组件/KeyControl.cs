@@ -43,7 +43,7 @@ public class KeyControl : MonoBehaviour
         else
         {
             bx.isTrigger = false;
-            spriteRenderer.DOFade(0f, 0.2f);
+            spriteRenderer.DOFade(0.5f, 0.2f);
         }
     }
 

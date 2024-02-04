@@ -9,6 +9,8 @@ TagManager:
   - Music
   - Door
   - RePanel
+  - Audio
+  - Sound
   layers:
   - Default
   - TransparentFX

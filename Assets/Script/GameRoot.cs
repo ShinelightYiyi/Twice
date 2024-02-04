@@ -11,6 +11,7 @@ public class GameRoot : MonoBehaviour
 
     private GameObject AudioObj;
 
+
     public void Awake()
     {
         rootUIManager = new UIManager();
@@ -32,8 +33,16 @@ public class GameRoot : MonoBehaviour
 
     public void ReadyStartGame()
     {
-        SceneController.Instance.LoadScene("level0 1");
+        SceneController.Instance.LoadScene("Select");
      //   AuidoMag.Instance.Play("Music/¹Ø¿¨");
     }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
+
+
+
 
 }
