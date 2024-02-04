@@ -1,0 +1,50 @@
+Subject: [PATCH] 修复一个小bug
+---
+Index: Assets/Scenes/menu.unity
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>GBK
+===================================================================
+diff --git a/Assets/Scenes/menu.unity b/Assets/Scenes/menu.unity
+--- a/Assets/Scenes/menu.unity	(revision 09d88e9012d1ea193f42b1c9da176ad9de17c119)
++++ b/Assets/Scenes/menu.unity	(revision 0947eb1e41217fd595240d1501f764a046193c4b)
+@@ -357,7 +357,7 @@
+   m_AdditionalShaderChannelsFlag: 0
+   m_UpdateRectTransformForStandalone: 0
+   m_SortingLayerID: 0
+-  m_SortingOrder: 0
++  m_SortingOrder: 10
+   m_TargetDisplay: 0
+ --- !u!224 &201584440
+ RectTransform:
+Index: Assets/Script/游戏组件/EnterControl.cs
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>GBK
+===================================================================
+diff --git a/Assets/Script/游戏组件/EnterControl.cs b/Assets/Script/游戏组件/EnterControl.cs
+--- a/Assets/Script/游戏组件/EnterControl.cs	(revision 09d88e9012d1ea193f42b1c9da176ad9de17c119)
++++ b/Assets/Script/游戏组件/EnterControl.cs	(revision 0947eb1e41217fd595240d1501f764a046193c4b)
+@@ -47,16 +47,16 @@
+     {
+         if (canChange)
+         {
+-            bx.isTrigger = true;
+-            bx.size = new Vector2(5.831726f, 8.549131f);
+-            spriteRenderer.DOFade(1f, 0.2f);
+-        }
+-        else
+-        {
+             bx.isTrigger = false;
+             bx.size = new Vector2(0, 0);
+             spriteRenderer.DOFade(0.5f, 0.2f);
+         }
++        else
++        {
++            bx.isTrigger = true;
++            bx.size = new Vector2(5.831726f, 8.549131f);
++            spriteRenderer.DOFade(1f, 0.2f);
++        }
+     }
+ 
+     private void ReadyLoadSceneAsy()
