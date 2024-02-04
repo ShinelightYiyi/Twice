@@ -47,15 +47,15 @@ public class EnterControl : MonoBehaviour
     {
         if (canChange)
         {
-            bx.isTrigger = true;
-            bx.size = new Vector2(5.831726f, 8.549131f);
-            spriteRenderer.DOFade(1f, 0.2f);
-        }
-        else
-        {
             bx.isTrigger = false;
             bx.size = new Vector2(0, 0);
             spriteRenderer.DOFade(0.5f, 0.2f);
+        }
+        else
+        {
+            bx.isTrigger = true;
+            bx.size = new Vector2(5.831726f, 8.549131f);
+            spriteRenderer.DOFade(1f, 0.2f);
         }
     }
 
