@@ -1488,6 +1488,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &1627760334
 GameObject:
   m_ObjectHideFlags: 0
@@ -1635,6 +1636,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+>>>>>>> f4b69cfebd9825719ea7f6ba5a111a3ad8279322
 =======
 >>>>>>> f4b69cfebd9825719ea7f6ba5a111a3ad8279322
 --- !u!1001 &1664429950
@@ -2254,15 +2257,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 <<<<<<< HEAD
+<<<<<<< HEAD
   Door: {fileID: 1257727242}
   P1: {fileID: 7241599629434845534}
   P2: {fileID: 6263120902091108692}
   duration: 2
 =======
+=======
+>>>>>>> f4b69cfebd9825719ea7f6ba5a111a3ad8279322
   Door: {fileID: 1820739935}
   P1: {fileID: 7241599629434845534}
   P2: {fileID: 6263120902091108692}
   duration: 1
+<<<<<<< HEAD
+>>>>>>> f4b69cfebd9825719ea7f6ba5a111a3ad8279322
+=======
 >>>>>>> f4b69cfebd9825719ea7f6ba5a111a3ad8279322
 --- !u!61 &4356704975550561299
 BoxCollider2D:
