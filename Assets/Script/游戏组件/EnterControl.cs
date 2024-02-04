@@ -38,5 +38,6 @@ public class EnterControl : MonoBehaviour
     private void LoadSceneAsy()
     {
         SceneController.Instance.LoadSceneAsyn(scene);
+        
     }
 }
