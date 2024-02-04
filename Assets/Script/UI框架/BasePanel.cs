@@ -12,18 +12,18 @@ public abstract class BasePanel
     }
     public virtual void OnStart() 
     {
-        UIMethod.Instance.AddOrGetComponent<CanvasGroup>(activeObj).interactable = true;
+     //   UIMethod.Instance.AddOrGetComponent<CanvasGroup>(activeObj).interactable = true;
     }
     public virtual void OnEnable() 
     {
-        UIMethod.Instance.AddOrGetComponent<CanvasGroup>(activeObj).interactable = true;
+      //  UIMethod.Instance.AddOrGetComponent<CanvasGroup>(activeObj).interactable = true;
     }
     public virtual void OnDisable() 
     {
-        UIMethod.Instance.AddOrGetComponent<CanvasGroup>(activeObj).interactable = false;
+      //  UIMethod.Instance.AddOrGetComponent<CanvasGroup>(activeObj).interactable = false;
     }
     public virtual void OnDestroy() 
     {
-        UIMethod.Instance.AddOrGetComponent<CanvasGroup>(activeObj).interactable = false;
+       // UIMethod.Instance.AddOrGetComponent<CanvasGroup>(activeObj).interactable = false;
     }
 }

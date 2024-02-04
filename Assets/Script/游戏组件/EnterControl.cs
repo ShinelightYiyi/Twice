@@ -29,7 +29,7 @@ public class EnterControl : MonoBehaviour
 
     private void ReadyLoadSceneAsy()
     {
-        GameRoot.Instance.rootUIManager.Pop(true);
+        GameRoot.Instance.rootUIManager.Pop(false);
         EventCenter.Instance.Clear();
         GameRoot.Instance.rootUIManager.Push(new PanelPass());
         Invoke("LoadSceneAsy", 0.5f);

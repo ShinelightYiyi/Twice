@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7681478013700237887}
   - component: {fileID: 4228774899566292219}
   - component: {fileID: 117368903064992508}
+  - component: {fileID: -832854421586744615}
   m_Layer: 5
   m_Name: PanelPass
   m_TagString: Pass
@@ -75,3 +76,15 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &-832854421586744615
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3082305600648763898}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0

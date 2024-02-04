@@ -11,9 +11,11 @@ public class DoorController : MonoBehaviour
     [SerializeField] GameObject P2;
     [SerializeField] float duration;
     private bool isOpen;
+    private Animator ani;
 
     private void Awake()
     {
+        ani = GetComponent<Animator>();
         EventCenter.Instance.AddEventListener("»î¶¯ÃÅ", () => ControlDoor());
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -40,11 +42,14 @@ public class DoorController : MonoBehaviour
         {
             Door.transform.DOMove(P2.transform.position, duration);
             isOpen = !isOpen;
+            ani.SetBool("move", true);
         }
         else if(isOpen )
         {
             Door.transform.DOMove(P1.transform.position, duration);
             isOpen = !isOpen;
+            this.gameObject.transform.DORotate(new Vector3(0, 0, 118.4f), 0.5f);
+            ani.SetBool("move", false);
         }
     }
     

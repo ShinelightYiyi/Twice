@@ -9,11 +9,13 @@ public class GameRoot : MonoBehaviour
 
     public UIManager rootUIManager;
 
+    private GameObject AudioObj;
 
     public void Awake()
     {
         rootUIManager = new UIManager();
 
+        AudioObj = GameObject.FindGameObjectWithTag("Audio");
         if(instance == null )
         {
             instance = this;
@@ -25,25 +27,13 @@ public class GameRoot : MonoBehaviour
         GameObject go = GameObject.FindGameObjectWithTag("NormalCanvas");
         DontDestroyOnLoad(go);
         DontDestroyOnLoad(this);
+        DontDestroyOnLoad(AudioObj);
     }
 
-    private void Start()
+    public void ReadyStartGame()
     {
-        //  rootUIManager.Push(new PanelA());
-      //  AuidoMag.Instance.Play("Music/AudioA");
+        SceneController.Instance.LoadScene("level0 1");
+     //   AuidoMag.Instance.Play("Music/¹Ø¿¨");
     }
 
-    private void Update()
-    {
-      /*  if(Input.GetKeyUp(KeyCode.Escape)) 
-        {
-            rootUIManager.Pop(false);
-            rootUIManager.Push(new PanelAudio());
-        }
-        else if(Input.GetKeyUp(KeyCode.R))
-        {
-            rootUIManager.Pop(false);
-            rootUIManager.Push(new PanelA());
-        }*/
-    }
 }

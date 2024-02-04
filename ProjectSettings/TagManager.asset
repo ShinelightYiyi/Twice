@@ -8,6 +8,7 @@ TagManager:
   - Pass
   - Music
   - Door
+  - RePanel
   layers:
   - Default
   - TransparentFX

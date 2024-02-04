@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class BoxControl : MonoBehaviour
 {
@@ -9,10 +10,13 @@ public class BoxControl : MonoBehaviour
     private SpriteRenderer sp;
     private BoxCollider2D box;
     private GameObject player;
+    private Animator ani;
+    public string thisScene;
     [SerializeField] bool isDown, isHurt;
 
     private void Start()
     {
+        ani = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
         box = GetComponent<BoxCollider2D>();
         sp = GetComponent<SpriteRenderer>();
@@ -42,12 +46,12 @@ public class BoxControl : MonoBehaviour
         if(isDown && rg.gravityScale<0)
         {
             rg.gravityScale = -rg.gravityScale;
-            sp.color = Color.red;
+            ani.SetBool("canChange", false);
         }
         else if(!isDown && rg.gravityScale>0)
         {
             rg.gravityScale = -rg.gravityScale;
-            sp.color = Color.yellow;
+            ani.SetBool("canChange", true);
         }
     }
 
@@ -55,12 +59,31 @@ public class BoxControl : MonoBehaviour
     {
         if(collision.tag == "Player")
         {
-            Destroy(player);
+            KillPlayer();
         }
     }
     private void ChangeScene()
     {
         isDown = !isDown;
         isHurt = !isHurt;
+    }
+
+    private void KillPlayer()
+    {
+        DG.Tweening.Sequence sequence = DOTween.Sequence(player);
+        sequence.Append(player.transform.DOScale(0.15f, 0.1f));
+        sequence.OnComplete(()=>Destroy(player));
+        Invoke("ReStart", 0.3f);
+    }
+    private void ReStart()
+    {
+        GameRoot.Instance.rootUIManager.Pop(true);
+        EventCenter.Instance.Clear();
+        GameRoot.Instance.rootUIManager.Push(new PanelPass());
+        Invoke("ReScene", 0.6f);
+    }
+    private void ReScene()
+    {
+        SceneController.Instance.LoadSceneAsyn(thisScene);
     }
 }
