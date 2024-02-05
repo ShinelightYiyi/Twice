@@ -274,12 +274,20 @@ PrefabInstance:
       value: EnterDoor
       objectReference: {fileID: 0}
     - target: {fileID: 6753515203612935063, guid: 4145afd76db18a946ac3946cdcb10bbb, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.132048
+      objectReference: {fileID: 0}
+    - target: {fileID: 6753515203612935063, guid: 4145afd76db18a946ac3946cdcb10bbb, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.13306457
+      objectReference: {fileID: 0}
+    - target: {fileID: 6753515203612935063, guid: 4145afd76db18a946ac3946cdcb10bbb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.14
+      value: -5.19
       objectReference: {fileID: 0}
     - target: {fileID: 6753515203612935063, guid: 4145afd76db18a946ac3946cdcb10bbb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.78
+      value: -2.11
       objectReference: {fileID: 0}
     - target: {fileID: 6753515203612935063, guid: 4145afd76db18a946ac3946cdcb10bbb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -746,7 +754,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3053282095219459348, guid: 6770f0cb8b827de43b3baafc3d02f8b0, type: 3}
       propertyPath: thisScene
-      value: level3
+      value: level3 1
       objectReference: {fileID: 0}
     - target: {fileID: 4535522302946439124, guid: 6770f0cb8b827de43b3baafc3d02f8b0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1716,7 +1724,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3053282095219459348, guid: 6770f0cb8b827de43b3baafc3d02f8b0, type: 3}
       propertyPath: thisScene
-      value: level3
+      value: level3 1
       objectReference: {fileID: 0}
     - target: {fileID: 4535522302946439124, guid: 6770f0cb8b827de43b3baafc3d02f8b0, type: 3}
       propertyPath: m_LocalPosition.x
