@@ -1654,6 +1654,10 @@ PrefabInstance:
       propertyPath: scene
       value: level3 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4901388511175042110, guid: 4145afd76db18a946ac3946cdcb10bbb, type: 3}
+      propertyPath: thisScene
+      value: level2 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5468481217449175046, guid: 4145afd76db18a946ac3946cdcb10bbb, type: 3}
       propertyPath: m_Name
       value: EnterDoor

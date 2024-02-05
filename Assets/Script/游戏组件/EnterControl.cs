@@ -7,6 +7,7 @@ using DG.Tweening;
 public class EnterControl : MonoBehaviour
 {
     public string scene;
+    public string thisScene;
     private BoxCollider2D bx;
     private SpriteRenderer spriteRenderer;
     private bool canEnter;
@@ -38,6 +39,10 @@ public class EnterControl : MonoBehaviour
     private void Update()
     {
         CanGet();
+        if (Input.GetKeyUp(KeyCode.R))
+        {
+            ReLoadScene();
+        }
     }
     private void ChangeScene()
     {
@@ -59,6 +64,15 @@ public class EnterControl : MonoBehaviour
         }
     }
 
+    private void ReLoadScene()
+    {
+        GameRoot.Instance.rootUIManager.Pop(false);
+        EventCenter.Instance.Clear();
+        GameRoot.Instance.rootUIManager.Push(new PanelPass());
+        Invoke("CanReLoadScene", 0.5f);
+    }
+
+
     private void ReadyLoadSceneAsy()
     {
         GameRoot.Instance.rootUIManager.Pop(false);
@@ -66,7 +80,10 @@ public class EnterControl : MonoBehaviour
         GameRoot.Instance.rootUIManager.Push(new PanelPass());
         Invoke("LoadSceneAsy", 0.5f);
     }
-
+    private void CanReLoadScene()
+    {
+        SceneController.Instance.LoadSceneAsyn(thisScene);
+    }
     private void LoadSceneAsy()
     {
         SceneController.Instance.LoadSceneAsyn(scene);
